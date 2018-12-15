@@ -67,6 +67,9 @@ class ViewController: UIViewController {
 
         // 全局設定
         self.view.backgroundColor = UIColor.black
+        
+        // 保持螢幕亮度
+        UIApplication.shared.isIdleTimerDisabled = true
 
         // 吉他琴頭圖片
         let myImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: fullSize.width, height: fullSize.width))
@@ -113,6 +116,13 @@ class ViewController: UIViewController {
         frequencyLabel.center = CGPoint(x: fullSize.width * 0.5, y: fullSize.height * 0.5 + fullSize.width * 0.7)
         self.view.addSubview(frequencyLabel)
         
+        // 前往資訊頁面的按鈕
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.center = CGPoint(x: fullSize.width * 0.9, y: fullSize.height * 0.1)
+        infoButton.tintColor = .white
+        infoButton.addTarget(nil, action: #selector(ViewController.infoAction), for: .touchUpInside)
+        self.view.addSubview(infoButton)
+        
         // AudioKit
         AKSettings.audioInputEnabled = true
         mic = AKMicrophone()
@@ -123,6 +133,9 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // 確認麥克風權限
+        self.checkMicrophoneAuthorize()
+
         // 啟動 AudioKit
         AudioKit.output = silence
         do {
@@ -140,12 +153,6 @@ class ViewController: UIViewController {
     }
 
     @objc func updateUI() {
-/*
-         if tracker.amplitude > 0.1 {
-            frequencyLabel.text = String(format: "%0.1f", tracker.frequency)
-         }
-*/
-
         if tracker.amplitude > 0.05 {
             let freq = tracker.frequency
             
@@ -201,6 +208,40 @@ class ViewController: UIViewController {
         
         indicatorView.backgroundColor = color
         indicatorView.center = CGPoint(x: positionX, y: indicatorView.center.y)
+    }
+
+    // 確認麥克風權限
+    func checkMicrophoneAuthorize() {
+        switch AVCaptureDevice.authorizationStatus(for: .audio) {
+        case .authorized:
+            print("authorized")
+        case .notDetermined:
+            print("notDetermined")
+        case .denied:
+            fallthrough
+        case .restricted:
+            let alertController = UIAlertController(title: "無法使用麥克風", message: "應用程式需要使用麥克風收音以取得吉他各弦的音高頻率，麥克風功能需要取得你的同意才能開始使用，請前往設定開啟麥克風權限", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title:"取消", style: .cancel, handler:nil)
+            
+            let settingsAction = UIAlertAction(title:"設定", style: .default, handler: {
+                (action) -> Void in
+                let url = URL(string: UIApplication.openSettingsURLString)
+                if let url = url, UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url)
+                }
+            })
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(settingsAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    // 前往資訊頁的動作
+    @objc func infoAction() {
+        self.present(UINavigationController(rootViewController: InfoViewController()), animated: true, completion: nil)
     }
 
 }
