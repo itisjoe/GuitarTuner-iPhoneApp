@@ -4,6 +4,9 @@
 
 請前往[ Youtube 播放清單](https://www.youtube.com/playlist?list=PLUJ4J369lEBunVt8sWAjZ66JgHMCB7FLH)觀看教學影片，交互搭配，效果更佳。
 
+### !! 請注意 !!
+本專案**未包含** AudioKit Framework ，請按照影片教學將 Framework 加入到專案中，才可以正常運作。
+
 ## Swift 起步走 - 從 Swift 基礎入門到實戰 iPhone App 
 
 這是一本 Swift 的基礎入門電子書，這本書可以帶領你進入認識 Swift 的第一道門！ 
