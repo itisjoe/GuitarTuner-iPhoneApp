@@ -13,6 +13,8 @@
 		8125F15021BF9DA9008CDCFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8125F14F21BF9DA9008CDCFE /* Assets.xcassets */; };
 		8125F15321BF9DA9008CDCFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8125F15121BF9DA9008CDCFE /* LaunchScreen.storyboard */; };
 		8125F15E21BF9F0A008CDCFE /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8125F15D21BF9F0A008CDCFE /* AudioKit.framework */; };
+		8182448521C11B26001CBEB8 /* guitar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8182448321C11B26001CBEB8 /* guitar@3x.png */; };
+		8182448621C11B26001CBEB8 /* guitar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8182448421C11B26001CBEB8 /* guitar@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		8125F15221BF9DA9008CDCFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8125F15421BF9DA9008CDCFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8125F15D21BF9F0A008CDCFE /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		8182448321C11B26001CBEB8 /* guitar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guitar@3x.png"; sourceTree = "<group>"; };
+		8182448421C11B26001CBEB8 /* guitar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guitar@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				8125F14F21BF9DA9008CDCFE /* Assets.xcassets */,
 				8125F15121BF9DA9008CDCFE /* LaunchScreen.storyboard */,
 				8125F15421BF9DA9008CDCFE /* Info.plist */,
+				8182448421C11B26001CBEB8 /* guitar@2x.png */,
+				8182448321C11B26001CBEB8 /* guitar@3x.png */,
 			);
 			path = GuitarTuner;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 				8125F15321BF9DA9008CDCFE /* LaunchScreen.storyboard in Resources */,
 				8125F15021BF9DA9008CDCFE /* Assets.xcassets in Resources */,
 				8125F14E21BF9DA6008CDCFE /* Main.storyboard in Resources */,
+				8182448521C11B26001CBEB8 /* guitar@3x.png in Resources */,
+				8182448621C11B26001CBEB8 /* guitar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
